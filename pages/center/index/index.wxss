@@ -1,0 +1,37 @@
+/* pages/person/person.wxss */
+.myinfo {
+    height: 200rpx;
+    margin-bottom: 50rpx;
+    background-color: #d6b06d;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.myinfo .item-lef {
+    height: 150rpx;
+    width: 150rpx;
+    background-color: #d6b06d;
+}
+.block {
+    margin-top: 30rpx;
+    padding-bottom: 50rpx;
+    margin-bottom: 50rpx;
+    background-color: white;
+}
+
+.myinfo .item-lef image {
+    width: 100%;
+    height: 100%;
+    border-radius:50% ;
+}
+.myinfo .item-rig{
+    color: white;
+    padding-left: 40rpx;
+}
+.title {
+    text-align: left;
+    font-family: fantasy;
+    height: 80rpx;
+    line-height: 100rpx;
+}

@@ -1,0 +1,5 @@
+<!--pages/author/login/login.wxml-->
+<view class="btn">
+    <button open-type="getUserInfo" bindgetuserinfo="wxlogin" class="wxlogin">微信直接登录</button>
+    <button class="accountlogin" bindtap="accountlogin">账号登录</button>
+</view>

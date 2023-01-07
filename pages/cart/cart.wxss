@@ -1,0 +1,26 @@
+/* pages/cart/cart.wxss */
+.van-goods-action {
+    margin-bottom: 110rpx;
+}
+
+.btn {
+    padding: 10rpx;
+    border: 1px solid;
+}
+
+.havechoosed {
+    width: 400rpx;
+}
+
+.text-class {
+    width: 200rpx;
+}
+
+.operation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 140rpx;
+}

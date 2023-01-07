@@ -1,0 +1,136 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+    <!-- 搜索 -->
+    <view class="search">
+        <navigator url="/pages/search/search" class="input">
+            <image class="icon"></image>
+            <text class="txt">商品搜索</text>
+        </navigator>
+    </view>
+    <!-- 轮播图 -->
+    <view class="banner">
+        <view class="page-section page-section-spacing swiper">
+            <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+                <swiper-item wx:for="{{banner}}" wx:key="id">
+                    <image src="{{item.url}}" />
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <!-- 九宫格 -->
+    <view style="background-color: #fff">
+        <van-grid square column-num="5">
+            <van-grid-item icon="{{item.iconUrl}}" text="{{item.name}}" wx:for="{{ channel }}" wx:key="id" />
+        </van-grid>
+    </view>
+
+    <!-- 优惠券 -->
+    <view class="coupon">
+        <view class="title">优惠券</view>
+        <view class="coupon-item" wx:for="{{coupon}}" wx:key="id">
+            <view class="item-lef">
+                <view class="tag">{{item.tag}}</view>
+                <view class="price">{{item.discount}}元</view>
+                <view class="condition">满{{item.min}}元使用</view>
+            </view>
+            <view class="item-rig">
+                <view class="name">{{item.name}}</view>
+                <view class="time">{{item.desc}}</view>
+                <view class="time">有效期：{{item.days}}天</view>
+            </view>
+        </view>
+    </view>
+    <!-- 团购专区 -->
+    <view class="teambuy block">
+        <view class="title">团购专区</view>
+
+        <van-card wx:for="{{groupons}}" wx:key="id" num="团购{{item.groupon_member}}" price="{{item.groupon_price}}" desc="{{item.goods.brief}}" title="{{item.goods.name}}" thumb="{{ item.goods.picUrl }}" origin-price="{{item.goods.counterPrice}}">
+
+        </van-card>
+    </view>
+    <!-- 品牌制造商直供 -->
+    <view class="merchant block">
+        <view class="title">品牌制造商直供</view>
+        <view class="pro">
+            <view class="provide" wx:for="{{brands}}" wx:key="id">
+                <image src="{{item.picUrl}}" mode="" />
+                <view class="text">
+                    <view class="text1">{{item.name}}</view>
+                    <view class="text2">{{item.floorPrice}}元起</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+    <!-- 周一周四新品首发 -->
+    <view class="newgood block">
+        <view class="title">周一周四·新品首发</view>
+        <van-grid square column-num="2">
+            <van-grid-item url="../goods/goods?id={{item.id}}" use-slot icon="{{item.iconUrl}}" text="{{item.name}}" wx:for="{{ newGoods }}" wx:key="id">
+                <image style="width: 100%; height: 180rpx;" src="{{item.picUrl}}" />
+                <view class="text">
+                    <view class="text1">{{item.name}}</view>
+                    <view class="text2">￥{{item.retailPrice}}</view>
+                </view>
+            </van-grid-item>
+
+        </van-grid>
+    </view>
+    <!-- 人气推荐 -->
+    <view class="teambuy block">
+        <view class="title">人气推荐</view>
+        <van-card wx:for="{{hotGoods}}" wx:key="id" price="{{item.retailPrice}}" desc="{{item.brief}}" title="{{item.name}}" thumb="{{ item.picUrl }}">
+        </van-card>
+    </view>
+    <!-- 专题精选 -->
+    <view class="a-section a-topic block" wx:if="topics.length > 0">
+        <view class="h">
+            <view>
+                <navigator url="/pages/topic/topic">
+                    <view class="title">专题精选</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="b">
+            <scroll-view scroll-x class="list">
+                <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+                    <navigator url="../goods/goods?id={{item.id}}">
+                        <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
+                        <view class="np">
+                            <text class="name">{{item.title}}</text>
+                            <text class="price">￥{{item.price}}元起</text>
+                        </view>
+                        <text class="desc">{{item.subtitle}}</text>
+                    </navigator>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <!-- 居家 -->
+    <view class="stayhome block">
+        <view class="good-grid" wx:for="{{floorGoods}}" wx:key="id">
+            <!-- 各个标题 -->
+            <view class="h">
+                <text>{{item.name}}</text>
+            </view>
+            <!-- 每个块的商品信息 -->
+            <view class="b">
+                <!-- 下面重新定义index和item以免与一级循环冲突 -->
+                <block wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="id">
+                    <!-- 下面是四个小块，通过索引 -->
+                    <view class="item">
+                        <navigator url="../goods/goods?id={{iitem.id}}" class="a">
+                            <image class="img" src="{{iitem.picUrl}}" background-size="cover"></image>
+                            <text class="name">{{iitem.name}}</text>
+                            <text class="price">￥{{iitem.retailPrice}}</text>
+                        </navigator>
+                    </view>
+                </block>
+            </view>
+            <!-- 底部扩展链接 -->
+            <navigator url="/pages/category/category?id={{item.id}}" class="t">
+                <view class="txt">{{'更多'+item.name+'好物 >'}}</view>
+            </navigator>
+        </view>
+    </view>
+</view>

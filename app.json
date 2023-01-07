@@ -1,0 +1,45 @@
+{
+    "usingComponents": {
+        "van-tabbar": "@vant/weapp/tabbar/index",
+        "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+    },
+    "pages": [
+        "pages/home/home",
+        "pages/kinds/kinds",
+        "pages/cart/cart",
+        "pages/goods/goods",
+        "pages/center/index/index",
+        "pages/center/login/login",
+        "pages/center/account/account",
+        "pages/center/register/register",
+        "custom-tab-bar/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "第一个小程序项目",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "custom": true,
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/kinds/kinds",
+                "text": "分类"
+            },
+            {
+                "pagePath": "pages/cart/cart",
+                "text": "购物车"
+            },
+            {
+                "pagePath": "pages/center/index/index",
+                "text": "个人"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

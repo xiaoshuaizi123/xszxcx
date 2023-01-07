@@ -1,0 +1,37 @@
+<!--pages/person/person.wxml-->
+
+<view class="container">
+    <!-- 顶部 -->
+    <view class="myinfo">
+        <view class="item-lef">
+            <image src="{{userInfo.avatarUrl}}" alt="" />
+        </view>
+        <view class="item-rig" bindtap="tologin">
+            <view>{{userInfo.nickName}}</view>
+        </view>
+        <button bindtap="cleaninfo" class="outlogin" wx:if="{{hasLogin}}">退出登录</button>
+
+
+    </view>
+    <!-- 我的订单 -->
+    <view class="myorder block">
+        <view class="title">我的订单</view>
+        <van-grid square column-num="4">
+            <van-grid-item icon="photo-o" text="文字" wx:for="{{ 4 }}" wx:key="id" />
+        </van-grid>
+    </view>
+    <!-- 核心服务 -->
+    <view class="myorder block">
+        <view class="title">核心服务</view>
+        <van-grid square column-num="5">
+            <van-grid-item icon="photo-o" text="文字" wx:for="{{ 5 }}" wx:key="id" />
+        </van-grid>
+    </view>
+    <!-- 必备工具 -->
+    <view class="myorder block">
+        <view class="title">必备工具</view>
+        <van-grid square column-num="5">
+            <van-grid-item icon="photo-o" text="文字" wx:for="{{ 5 }}" wx:key="id" />
+        </van-grid>
+    </view>
+</view>

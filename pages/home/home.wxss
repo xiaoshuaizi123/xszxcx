@@ -1,0 +1,316 @@
+/* pages/home/home.wxss */
+/**index.wxss**/
+
+/* ======================================= 搜索框相关的样式 */
+.search {
+    height: 88rpx;
+    width: 100%;
+    padding: 0 30rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.search .input {
+    width: 690rpx;
+    height: 56rpx;
+    background: #ededed;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search .icon {
+    background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png) center no-repeat;
+    background-size: 100%;
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.search .txt {
+    height: 42rpx;
+    line-height: 42rpx;
+    color: #666;
+    padding-left: 10rpx;
+    font-size: 30rpx;
+}
+
+.banner {
+    width: 750rpx;
+}
+
+.banner image {
+    width: 100%;
+    height: 417rpx;
+}
+
+.coupon {
+    margin-top: 30rpx;
+    padding-bottom: 50rpx;
+    margin-bottom: 50rpx;
+    background-color: white;
+}
+
+.block {
+    margin-top: 30rpx;
+    padding-bottom: 50rpx;
+    margin-bottom: 50rpx;
+    background-color: white;
+}
+
+.coupon-item {
+    padding-top: 20rpx;
+    margin: 20rpx 32rpx;
+    height: 300rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d6b06d;
+}
+
+.item-lef {
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+.item-rig {
+    flex: auto;
+    text-align: left;
+    color: white;
+}
+
+.coupon .tag {
+    height: 32rpx;
+    background: #a48143;
+    padding-left: 16rpx;
+    padding-right: 16rpx;
+    position: absolute;
+    left: 20rpx;
+    top: 10rpx;
+    color: #fff;
+    font-size: 20rpx;
+    text-align: center;
+    line-height: 32rpx;
+}
+
+.coupon .price {
+    padding-top: 50rpx;
+    padding-left: 30rpx;
+    color: red;
+    font-size: 60rpx;
+}
+
+.coupon .conditon {
+    padding-top: 100rpx;
+    padding-left: 30rpx;
+    color: white;
+    font-size: 80rpx;
+}
+
+.item-rig .name {
+    font-size: 60rpx;
+}
+
+.item-rig .time {
+    font-size: 40rpx;
+}
+
+.title {
+    text-align: center;
+    font-family: fantasy;
+    height: 150rpx;
+    line-height: 150rpx;
+}
+
+
+.van-card {
+    border-top: 1px solid black;
+}
+
+.van-card .price {
+    height: 100rpx;
+}
+
+.merchant .text {
+    position: absolute;
+    top: 80rpx;
+    color: white;
+    font-size: 35rpx;
+}
+
+.newgood .text {
+    position: absolute;
+    text-align: center;
+    bottom: 50rpx;
+    color: black;
+    font-size: 35rpx;
+}
+
+.newgood .text2 {
+    color: #a69368;
+}
+
+.van-card__price-integer {
+    color: #a69368;
+
+}
+
+/* 专题精选样式 */
+.a-topic .b {
+    height: 533rpx;
+    width: 750rpx;
+    padding: 0 0 48rpx 0;
+}
+
+.a-topic .b .list {
+    height: 533rpx;
+    width: 750rpx;
+    white-space: nowrap;
+}
+
+.a-topic .b .item {
+    display: inline-block;
+    height: 533rpx;
+    width: 680.5rpx;
+    margin-left: 30rpx;
+    overflow: hidden;
+}
+
+.a-topic .b .item:last-child {
+    margin-right: 30rpx;
+}
+
+.a-topic .b .img {
+    height: 387.5rpx;
+    width: 680.5rpx;
+    margin-bottom: 30rpx;
+}
+
+.a-topic .b .np {
+    height: 35rpx;
+    margin-bottom: 13.5rpx;
+    color: #333;
+    font-size: 30rpx;
+}
+
+.a-topic .b .np .price {
+    margin-left: 20.8rpx;
+    color: #ab956d;
+}
+
+.a-topic .b .desc {
+    display: block;
+    height: 30rpx;
+    color: #999;
+    font-size: 24rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ———————————————————————————————————— */
+/* ======================================= 其它数据（二维数组）相关的样式 */
+.good-grid {
+    width: 750rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.good-grid .h {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 130rpx;
+    font-size: 33rpx;
+    color: #333;
+}
+
+.good-grid .b {
+    width: 750rpx;
+    padding: 0 6.25rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.good-grid .b .item {
+    float: left;
+    background: #fff;
+    width: 365rpx;
+    margin-bottom: 6.25rpx;
+    height: 452rpx;
+    overflow: hidden;
+    text-align: center;
+}
+
+.good-grid .b .item .a {
+    height: 452rpx;
+    width: 100%;
+}
+
+/* .good-grid .b .item-b {
+    margin-left: 6.25rpx;
+} */
+
+.good-grid .item .img {
+    margin-top: 20rpx;
+    width: 302rpx;
+    height: 302rpx;
+}
+
+.good-grid .item .name {
+    display: block;
+    width: 365.625rpx;
+    padding: 0 20rpx;
+    overflow: hidden;
+    height: 35rpx;
+    margin: 11.5rpx 0 22rpx 0;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.good-grid .item .price {
+    display: block;
+    width: 365.625rpx;
+    height: 30rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #ab956d;
+}
+
+.good-grid .t {
+    height: 100rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 品牌制造商直供 */
+.pro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-self: center; 
+}
+
+.provide {
+    height: 200rpx;
+    position: relative;
+    padding: 4rpx 0;
+    width: 49.6%;
+
+}
+
+.provide image {
+    width: 100%;
+    height: 100%;
+}
+
+.provide .text {
+    position: absolute;
+    top: 100rpx;
+    color: white;
+}

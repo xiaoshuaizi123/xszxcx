@@ -1,0 +1,140 @@
+<!--pages/goods/goods.wxml-->
+<!-- 轮播图 -->
+<view class="banner">
+    <view class="swiper">
+        <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+            <swiper-item wx:for="{{goods.gallery}}" wx:key="id">
+                <image src="{{item}}" />
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+
+<!-- 详情 -->
+<view class="goodsinfo">
+    <!-- 名字 -->
+    <view class="goodname">
+        {{goods.name}}
+    </view>
+    <!-- 描述 -->
+    <view class="dec">
+        {{goods.brief}}
+    </view>
+    <!-- 价格 -->
+    <view class="price">
+        <view class="price1">原价：{{goods.counterPrice}}</view>
+        <view class="price2">现价：{{goods.counterPrice}}</view>
+    </view>
+    <!-- 制造商 -->
+    <view class="factory">
+        {{brand.name}}>
+    </view>
+    <!-- 选择规格 -->
+    <view class="choose" bindtap="switchpop">
+        <view class="lef">规格数量选择</view>
+        <view class="rig">＞</view>
+    </view>
+    <!-- 弹出 -->
+    <van-popup closeable close-icon="close" show="{{ popshow }}" position="bottom" custom-style="height: 80%;" bind:close="onClose">
+        <view class="pop-head">
+            <view class="lef">
+                <image src="{{goods.picUrl}}" mode="" />
+            </view>
+            <view class="rig">
+                <view>价格：{{specprice ? specprice :''}} </view>
+                <view>{{ newspecvalue ? newspecvalue :'请选择规格'}}
+                </view>
+            </view>
+        </view>
+        <view class="pop-det1" wx:for="{{specificationList}}" wx:key="name">
+            <view>{{item.name}}</view>
+            <view class="pop-tag-box">
+                <view class="pop-tag {{vitem.deleted?'choosed':''}}" wx:for="{{item.valueList}}" wx:for-item="vitem" wx:for-index="vindex" wx:key="vindex" bindtap="changetag" data-name="{{vitem.specification}}" data-value-id="{{vitem.id}}">
+                    <view class="tag1">{{vitem.value}}</view>
+                </view>
+            </view>
+        </view>
+        <!-- 数量 -->
+        <view class="pop-det1">
+            <view>数量</view>
+            <view class="pop-tag">
+                <view class="tag2" bindtap="cutnum">-</view>
+                <view class="tag2">{{goodsnum}}</view>
+                <view class="tag2" bindtap="addnum">+</view>
+            </view>
+        </view>
+        <button bindtap="addgoods" style="width: 750rpx; background-color: red;">确定</button>
+    </van-popup>
+    <!-- 评论 -->
+    <view class="commit">
+        <view class="lef">评论({{comment.count}})</view>
+        <view class="rig">查看全部</view>
+    </view>
+    <!-- 评论详情 -->
+    <view wx:for="{{comment.data}}" wx:key="id" class="commitdet">
+        <view class="com-head">
+            <view class="com-head-lef">
+                <image src="{{item.avatar}}" mode="" />
+                <view>
+                    {{item.nickname}}
+                </view>
+            </view>
+            <view class="com-head-rig">{{item.addTime}}</view>
+        </view>
+        <view class="com-body">
+            <view class="talk">{{item.content}}</view>
+            <view class="pic">
+                <image src="{{item.picList}}" mode="" />
+            </view>
+        </view>
+    </view>
+
+    <!-- 产品参数 -->
+    <view class="goodsdetails">
+        <view class="title">商品参数</view>
+        <view class="det" wx:for="{{attribute}}" wx:key="id">
+            <view class="det1">{{item.attribute}}</view>
+            <view class="det2">{{item.value}}</view>
+        </view>
+
+    </view>
+    <!-- 富文本 -->
+    <rich-text nodes="{{more}}" />
+    <!-- 常见问题 -->
+    <view class="common-problem">
+        <view class="h">
+            <view class="line"></view>
+            <text class="title">常见问题</text>
+        </view>
+        <view class="b">
+            <view class="item" wx:for="{{issuelist}}" wx:key="id">
+                <view class="question-box">
+                    <text class="spot"></text>
+                    <text class="question">{{item.question}}</text>
+                </view>
+                <view class="answer">
+                    {{item.answer}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 相关商品 -->
+    <view class="relationship">
+        <van-grid column-num="2" icon-size="180" clickable>
+            <van-grid-item use-slot wx:for="{{relategoods}}" wx:key="id">
+                <image style="width: 100%; height: 90px;" src="{{item.picUrl}}" />
+                <text>{{item.name}}</text>
+                <text>￥{{item.retailPrice}}</text>
+            </van-grid-item>
+        </van-grid>
+    </view>
+
+    <!-- 底部购买栏 -->
+    <van-goods-action>
+        <text class="cart-count">{{cartgoodnum}}</text>
+        <van-goods-action-icon icon="star-o" text="收藏" bind:click="onClickIcon" />
+        <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
+        <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickButton" />
+        <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+    </van-goods-action>
+</view>

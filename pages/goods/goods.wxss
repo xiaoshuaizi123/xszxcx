@@ -1,0 +1,361 @@
+/* pages/goods/goods.wxss */
+.banner {
+    height: 700rpx;
+}
+
+.swiper {
+    height: 100%;
+    overflow: hidden;
+
+}
+
+swiper {
+    height: 100%;
+    overflow: hidden;
+}
+
+swiper image {
+    width: 100%;
+    height: 100%;
+}
+
+/* 弹出框 */
+.pop-head {
+    display: flex;
+    align-items: center;
+}
+
+.pop-head .lef {
+    width: 30%;
+    height: 30%;
+}
+
+.pop-head .lef image {
+    width: 100%;
+    height: 260rpx;
+}
+
+.pop-det1 {
+    height: 160rpx;
+    margin: 20rpx 0;
+
+}
+
+.pop-tag {
+
+    display: flex;
+    padding-top: 20rpx;
+
+}
+.pop-tag-box{
+    display: flex;
+}
+.tag1 {
+    font-size: 32rpx;
+    border: 1px solid;
+    margin: 0 30rpx;
+    padding: 10rpx 10rpx;
+    border-radius: 5rpx;
+}
+
+.tag2 {
+    
+    width: 120rpx;
+    height: 80rpx;
+    border: 1px solid;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.num {
+    display: flex;
+}
+button{
+    color: white;
+}
+.choosed{
+    color: orangered;
+
+}
+/* 评论 */
+.com-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.com-head-rig {
+    width: 50%;
+}
+
+/* 详情 */
+.goodsinfo {
+    background-color: white;
+    overflow: hidden;
+}
+
+/* 富文本 */
+.xx {
+    width: 750rpx;
+    min-width: 100%;
+    height: auto;
+}
+
+.more img {
+    width: 100%;
+
+}
+
+.goodname {
+    padding: 10rpx 10rpx;
+    font-size: 50rpx;
+    font-weight: bold;
+}
+
+.dec {
+    opacity: .5;
+    padding: 10rpx 10rpx;
+}
+
+.price {
+    padding: 30rpx 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.price1 {
+    text-decoration: line-through;
+    margin-right: 40rpx;
+}
+
+.price2 {
+    color: #a78845;
+}
+
+.factory {
+    width: 420rpx;
+    text-align: center;
+    padding: 10rpx 10rpx;
+    border: 1px solid yellowgreen;
+    color: #f7af5b;
+}
+
+.choose {
+    padding: 10rpx 10rpx;
+    margin-top: 10rpx;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120rpx;
+}
+
+.commit {
+    padding: 10rpx 30rpx;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120rpx;
+}
+
+.com-head {
+    height: 20%;
+    margin-bottom: 20rpx;
+}
+
+.com-head-lef {
+    width: 260rpx;
+    height: 100rpx;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.com-head-rig {
+    font-size: 30rpx;
+    text-align: right;
+}
+
+.com-head-lef image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+/* 产品参数 */
+.goodsdetails {
+    padding: 0 30rpx;
+}
+
+.goodsdetails .title {
+    font-weight: bold;
+}
+
+.det {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 60rpx 0;
+    background-color: #f7f7f7;
+}
+
+.det1 {
+    width: 200rpx;
+}
+
+.det2 {
+    width: 600rpx;
+
+    height: 21px;
+    overflow: hidden;
+}
+
+.commitdet {
+    border-bottom: 1px solid;
+    margin-bottom: 40rpx;
+}
+
+.com-body .talk {
+    font-size: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.com-body .pic {
+    margin: 10rpx 20rpx;
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.com-body .pic image {
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------------------- 常见问题 */
+.common-problem {
+    width: 750rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.common-problem .h {
+    position: relative;
+    height: 145.5rpx;
+    width: 750rpx;
+    padding: 56.25rpx 0;
+    background: #fff;
+    text-align: center;
+}
+
+.common-problem .h .line {
+    display: inline-block;
+    position: absolute;
+    top: 72rpx;
+    left: 0;
+    z-index: 2;
+    height: 1px;
+    margin-left: 225rpx;
+    width: 300rpx;
+    background: #ccc;
+}
+
+.common-problem .h .title {
+    display: inline-block;
+    position: absolute;
+    top: 56.125rpx;
+    left: 0;
+    z-index: 3;
+    height: 33rpx;
+    margin-left: 285rpx;
+    width: 180rpx;
+    background: #fff;
+}
+
+.common-problem .b {
+    width: 750rpx;
+    height: auto;
+    overflow: hidden;
+    padding: 0rpx 30rpx;
+    background: #fff;
+}
+
+.common-problem .item {
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 25rpx;
+}
+
+.common-problem .question-box {
+    overflow: hidden;
+}
+
+.common-problem .question-box .spot {
+    float: left;
+    display: block;
+    height: 8rpx;
+    width: 8rpx;
+    background: #b4282d;
+    border-radius: 50%;
+    margin-top: 11rpx;
+}
+
+.common-problem .question-box .question {
+    float: left;
+    line-height: 30rpx;
+    padding-left: 8rpx;
+    display: block;
+    font-size: 26rpx;
+    padding-bottom: 15rpx;
+    color: #303030;
+}
+
+.common-problem .answer {
+    line-height: 36rpx;
+    padding-left: 16rpx;
+    font-size: 24rpx;
+    color: #787878;
+}
+
+/* 相关商品 */
+.relationship .van-grid {
+
+    color: blue;
+}
+
+.van-grid-item {
+    height: 200px;
+    margin-bottom: 20rpx;
+}
+
+.relationship text {
+    font-size: 28rpx;
+}
+
+.relationship text:last-child {
+    margin: 20rpx 0;
+    color: red;
+}
+
+.van-goods-action {
+
+}
+
+/* 购物车数量 */
+.cart-count {
+    height: 32rpx;
+    width: 32rpx;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 180rpx;
+    background: #b4282d;
+    text-align: center;
+    font-size: 18rpx;
+    color: #fff;
+    line-height: 28rpx;
+    border-radius: 50%;
+}
