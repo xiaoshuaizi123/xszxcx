@@ -34,6 +34,7 @@ Page({
         // console.log(this.data.id);
         this.getgoodsinfo()
         this.getralategoods()
+        this.getcartinfo()
     },
     // 获取商品数据
     getgoodsinfo: function () {
@@ -58,6 +59,7 @@ Page({
         })
     },
     // 弹出框选择
+
     switchpop: function () {
         this.setData({ popshow: true });
     },
@@ -123,18 +125,23 @@ Page({
         let productList = this.data.productList
         // console.log(productList);
         let specprice = ''
+        let specid = ''
         for (let k = 0; k < productList.length; k++) {
             // console.log(this.data.newspecval);
             if (this.data.newspecval.every(item => Boolean(item) == true)) {
                 if (String(productList[k].specifications) == String(this.data.newspecval)) {
                     // console.log(productList[k].specifications);
                     // console.log(k);
-
                     specprice = productList[k].price
+                    specid = productList[k].id
+
                     console.log(specprice);
+                    console.log(specid);
                     this.setData({
-                        specprice
+                        specprice,
+                        specid
                     })
+
                 }
             } else {
                 console.log("空");
@@ -168,7 +175,7 @@ Page({
             }
             // console.log(choosedobj);
             choosedval.push(choosedobj)
-            // console.log(choosedval);
+            console.log(choosedval);
         }
         return choosedval
     },
@@ -184,12 +191,85 @@ Page({
 
         })
     },
-    // 添加商品到购物车
-    addgoods: function () {
-        console.log("添加购物车");
-        http("/cart/add", "post", {
-            
+    // 获取购物车数据
+    getcartinfo: function () {
+        let that = this
+        http("/cart/index", "GET", {
+        }).then(function (res) {
+            console.log("获取购物车数据");
+            console.log(res);
+            let cartnum = res.data.data.cartTotal.goodsCount
+            console.log(cartnum);
+            that.setData({
+                cartnum
+            })
         })
+    },
+    // 添加商品到购物车
+    onClickButton: function () {
+        // 判断是否登录
+        let that = this
+        if (wx.getStorageSync('userInfo') && wx.getStorageSync('token')) {
+
+            if (that.data.specid) {
+                console.log("添加购物车");
+                http("/cart/add", "POST", {
+                    "goodsId": that.data.id,
+                    "number": that.data.goodsnum,
+                    "productId": that.data.specid,
+                }).then(function (res) {
+                    console.log("添加商品到购物车", res);
+                    // http("/cart/goodscount", "GET", {
+                    // }).then(res=>{
+                    //     console.log('zongjianshu',res.data.data);
+                    //     that.setData({
+                    //         goodsshuliang:res.data.data
+                    //     })
+                    // })
+                    that.getcartinfo()
+                    that.setData({
+                        popshow: !that.data.popshow
+                    })
+                    wx.showToast({
+                        title: '添加成功',
+                        icon: 'none'
+                    })
+                })
+            } else {
+                wx.showToast({
+                    title: '请先选择商品',
+                    icon: 'none'
+                })
+                this.setData({
+                    popshow: !this.data.popshow
+                })
+            }
+        } else {
+            wx.showToast({
+                title: '请先登录',
+                icon: 'none'
+            })
+            setTimeout(() => {
+                console.log(123);
+                wx.navigateTo({
+                    url: '../center/login/login',
+                })
+            }, 2000);
+
+        }
+
+
+
+    },
+    // 点击购物车
+    onClickIcon: function () {
+        wx.switchTab({
+            url: '/pages/cart/cart',
+        })
+    },
+    // 切换弹窗
+    changepop: function () {
+
     },
     // 相关商品
     getralategoods: function () {
@@ -207,7 +287,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        http("/cart/goodscount", "GET", {
+        }).then(res => {
+            console.log('zongjianshu', res.data.data);
+            this.setData({
+                goodsshuliang: res.data.data
+            })
+        })
+        this.getcartinfo()
     },
 
     /**

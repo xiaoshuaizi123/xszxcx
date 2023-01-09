@@ -1,11 +1,29 @@
 <!--pages/cart/cart.wxml-->
 <view>
-    <van-card num="2" price="2.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}" />
+    <view class="good">
+        <view class="goodslist" wx:for="{{cartList}}" wx:key="id">
+            <checkbox value="" />
+
+            <van-card style="width: 800rpx;" num=" {{item.number}}" price="{{item.price}}" desc="{{item.goodsName}}" thumb="{{ item.picUrl}}">
+                <view slot="footer">
+                    <view class="pop-det1">
+                        <view wx:if="{{isedit}}" class="pop-tag">
+                            <view class="tag2" data-index="{{index}}" bindtap="cutnum">-</view>
+                            <view class="tag2">{{item.number}}</view>
+                            <view class="tag2"  data-index="{{index}}"  bindtap="addnum">+</view>
+                            <view class="tag2"  data-index="{{index}}"  bindtap="addnum">删除</view>
+
+                        </view>
+                    </view>
+                </view>
+            </van-card>
+        </view>
+    </view>
     <view class="operation">
         <checkbox value="" />
-        <view class="alldone">全选（10）</view>
+        <view class="alldone">全选（{{cartnum}}）</view>
         <view class="price">￥100</view>
-        <button style="border-radius: 50rpx;background-color: #ab956d;">编辑</button>
+        <button bindtap="openedit" style="border-radius: 50rpx;background-color: #ab956d;">编辑</button>
         <button style="border-radius: 50rpx; background-color: #9a9ba1;">下单</button>
     </view>
 

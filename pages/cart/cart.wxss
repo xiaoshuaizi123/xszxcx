@@ -23,4 +23,36 @@
     justify-content: space-between;
     position: fixed;
     bottom: 140rpx;
+    background-color: white;
+}
+
+.goodslist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+
+}
+
+.good {
+    padding-bottom: 300rpx;
+}
+
+
+
+.pop-tag {
+
+    display: flex;
+    align-items: center;
+    /* justify-content: right; */
+    justify-content: flex-end;
+    /* justify-content:left; */
+
+}
+
+.tag2 {
+    height: 60rpx;
+    border: 1px solid;
+    line-height: 60rpx;
+    padding: 0 30rpx;
 }

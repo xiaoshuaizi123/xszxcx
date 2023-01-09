@@ -63,7 +63,7 @@
                 <view class="tag2" bindtap="addnum">+</view>
             </view>
         </view>
-        <button bindtap="addgoods" style="width: 750rpx; background-color: red;">确定</button>
+        <button bindtap="onClickButton" style="width: 750rpx; background-color: red;">确定</button>
     </van-popup>
     <!-- 评论 -->
     <view class="commit">
@@ -131,9 +131,9 @@
 
     <!-- 底部购买栏 -->
     <van-goods-action>
-        <text class="cart-count">{{cartgoodnum}}</text>
+        <!-- <text class="cart-count">{{cartnum}}</text> -->
         <van-goods-action-icon icon="star-o" text="收藏" bind:click="onClickIcon" />
-        <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
+        <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" info="{{cartnum}}" />
         <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickButton" />
         <van-goods-action-button text="立即购买" bind:click="onClickButton" />
     </van-goods-action>
